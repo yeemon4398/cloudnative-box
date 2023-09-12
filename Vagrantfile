@@ -5,7 +5,7 @@
 Vagrant.configure( "2" ) do |config|
 
   config.vm.define "kindcluster-box" do |vm1|
-    config.ssh.private_key_path = "/home/yeemon/Workspaces/kube-demo/kindcluster-box/.ssh/kindcluster_rsa"      # Parth to your private key file location
+    config.ssh.private_key_path = "/home/yeemon/Workspaces/kube-demo/kindcluster-box/.ssh/kindcluster_rsa"      # Path to your private key file location
     config.ssh.forward_agent = true
     config.ssh.username = "vagrant"
     config.ssh.password = "vagrant"
