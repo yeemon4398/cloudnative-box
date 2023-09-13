@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jp-location
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jp-location-pod
+  namespace: jp-location
+  labels:
+    app: jp-location-app
+spec:
+  containers:
+    - name: jp-location-container
+      image: hashicorp/http-echo:0.2.3
+      args:
+        - "-text=Response from JP"
+        - "-listen=:5679"
