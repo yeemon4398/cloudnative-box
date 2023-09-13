@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sg-location
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sg-location-pod
+  namespace: sg-location
+  labels:
+    app: sg-location-app
+spec:
+  containers:
+    - name: sg-location-container
+      image: hashicorp/http-echo:0.2.3
+      args:
+        - "-text=Response from SG"
+        - "-listen=:5679"
