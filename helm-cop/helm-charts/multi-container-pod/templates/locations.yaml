@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: multi-{{ .Release.Name }}
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multi-{{ .Release.Name }}-pod
+  namespace: multi-{{ .Release.Name }}
+  labels:
+    app: multi-{{ .Release.Name }}-app
+spec:
+  containers:
+    - name: {{ .Values.location1 }}-{{ .Release.Name }}-container
+      image: hashicorp/http-echo:0.2.3
+      args:
+        - "-text=Response from {{ .Values.location1}}"
+        - "-listen=:5679"
+    - name: {{ .Values.location2 }}-{{ .Release.Name }}-container
+      image: hashicorp/http-echo:0.2.3
+      args:
+        - "-text=Response from {{ .Values.location2 }}"
+        - "-listen=:5680"
