@@ -21,5 +21,5 @@ vagrant status      # Check vagrant box is up or not
 ```
 vagrant ssh       # password: vagrant
 cd k8s-cop/manifests/setup
-./setup-kindcluster123.sh      # Can run preferred setup file based on your requirements
+/bin/bash setup-kindcluster123.sh      # Can run preferred setup file based on your requirements
 ```
